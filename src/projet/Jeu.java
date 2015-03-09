@@ -12,7 +12,7 @@ public class Jeu {
 	//
 	//          *** Attributs ***
 	//
-	private MoteurDeJeu moteur;
+	// private MoteurDeJeu moteur;
 	// private InterfaceGraphique interface_graphique;
 	private Paquet pioche;
 	
@@ -25,7 +25,22 @@ public class Jeu {
 	}
 
 	public Jeu() {
-		// TODO Auto-generated constructor stub
+		// Nous avons besoin d'un paquet mélangé
+		try {
+			pioche = new Paquet (84);
+			pioche.melanger();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// Nous avons aussi besoin de 2 joueurs
+		
+		// d'un plateau de jeu
+		
+		// D'une interface graphique
+		
+		// Et d'un moteur de jeu
 	}
 
 }

@@ -5,13 +5,8 @@ package projet;
  * @author alain
  *
  */
-public class Avance extends Carte {
+public class Avance extends Deplacement {
 	
-	/**
-	 * a "avance" card may be of distance 1 to 3
-	 */
-	private int distance ;
-
 	public Avance() {
 		// TODO Auto-generated constructor stub
 	}
