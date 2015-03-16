@@ -1,5 +1,7 @@
 package projet;
 
+import cartes.Paquet;
+
 /**
  * Cette classe est la classe mère du projet, 
  * elle permet de lancer le moteur de jeu
