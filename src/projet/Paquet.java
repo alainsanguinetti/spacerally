@@ -2,6 +2,8 @@ package projet;
 
 import java.util.LinkedList;
 
+import cartes.*;
+
 /**
  * This class describes a deck of cards
  * @author alain
@@ -10,35 +12,20 @@ import java.util.LinkedList;
 public class Paquet {
 	
 	private LinkedList<Carte> tas = new LinkedList<Carte>();
-
-	public Paquet() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * Creates a standard deck of 84 cards
-	 */
-	private void creerCartes ()
-	{
-		//this.tas.creerCartesAvance();
-		//this.tas.creerCartesTourner();
-		//this.tas.ajouterCartesDemiTour();
-	}
 	
 	/**
 	 * Creates a new deck that contains i cards
 	 * @param i
-	 * @throws Exception 
 	 */
-	public Paquet(int i) throws Exception {
+	public Paquet() {
 		
-		if ( i != 84 )
-		{
-			// TODO renvoyer une exception
-		}
-		
-		// pour chaque type de carte, créer toutes les cartes nécessaires
-		//this.tas.creerCartes ();
+		tas.addAll( Deplacement.cartes( 18, 1 ) );
+		tas.addAll( Deplacement.cartes( 12, 2 ) );
+		tas.addAll( Deplacement.cartes( 6, 3 ) );
+		tas.addAll( Deplacement.cartes( 6, 1 ) );
+		tas.addAll( Orientation.cartes( 18, 1 ) );
+		tas.addAll( Orientation.cartes( 18, -1 ) );
+		tas.addAll( Orientation.cartes( 6, 2 ) );
 
 		
 	}

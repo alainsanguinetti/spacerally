@@ -1,7 +1,5 @@
 package projet;
 
-import java.util.LinkedList;
-
 /**
  * Cette classe est la classe mère du projet, 
  * elle permet de lancer le moteur de jeu
@@ -75,22 +73,23 @@ public class Jeu {
 		
 		// On prépare un plateau de jeu
 		plateau = new Plateau ( r1, r2 );
-	}
-	/**
-	 * Creates a game with two players
-	 * @param j1
-	 * @param j2
-	 * @param plateau 
-	 * @param pioche 
-	 */
-	public Jeu(Joueur j1, Joueur j2, Paquet pioche, Plateau plateau ) {
-		// TODO Auto-generated constructor stub
+		
+		// On prépare le moteur de jeu
+		moteur = new MoteurDeJeu ( j1, j2, plateau );
+		
+		// on lance l'interface graphique
+		
+		// On initialise les variables
+		setFini(false);
 	}
 	
 	/*
 	 *           *** Functions ***
 	 */
-	
+	private void tourDeJeu() {
+		// TODO Auto-generated method stub
+		
+	}	
 	/*
 	 *           *** Main ***
 	 */
@@ -102,6 +101,13 @@ public class Jeu {
 	{
 		// Prepare a new game
 		Jeu jeu = new Jeu ( );
+		
+		// On joue tant qu'on a pas fini
+		while ( !jeu.isFini() )
+			jeu.tourDeJeu();
+		
+		// 
 	}
+
 
 }

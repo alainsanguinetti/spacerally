@@ -1,5 +1,7 @@
 package projet;
 
+import cartes.Carte;
+
 public class Robot {
 
 	/**

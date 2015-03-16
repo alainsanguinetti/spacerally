@@ -1,4 +1,4 @@
-package projet;
+package cartes;
 
 /**
  * This class describes a general card
@@ -18,7 +18,10 @@ public abstract class Carte {
 	 * Counter to give every card a unique vitesse
 	 */
 	private static int cpt_vitesse = 0;
-	
+	/**
+	 * Each has a parameter.
+	 */
+	private int param;
 	/*
 	 *             *** Getters and setters ***
 	 */
@@ -36,6 +39,20 @@ public abstract class Carte {
 		this.vitesse = vitesse;
 	}
 
+	/**
+	 * @return the param
+	 */
+	public int getParam() {
+		return param;
+	}
+
+	/**
+	 * @param param the param to set
+	 */
+	public void setParam(int param) {
+		this.param = param;
+	}
+
 	/*
 	 *            *** Constructors ***
 	 */
@@ -43,9 +60,14 @@ public abstract class Carte {
 	 * Constructor for all cards, each card has a unique "vitesse"
 	 */
 	public Carte ( ){
+		
 		setVitesse(cpt_vitesse);
 		
 		cpt_vitesse++;
 	}
+	
+	/*
+	 *           *** Functions
+	 */
 
 }
