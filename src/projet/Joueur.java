@@ -19,8 +19,9 @@ public class Joueur {
 	
 	/**
 	 * Constructeur
+	 * @param r le robot qui représente le joueur
 	 */
-	public Joueur() {
+	public Joueur(Robot r) {
 		
 	}
 

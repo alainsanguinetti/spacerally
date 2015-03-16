@@ -6,9 +6,19 @@ package projet;
  *
  */
 public class MoteurDeJeu {
+	
+	/*
+	 *            *** Attributs ***
+	 */
+	private Joueur j1;
+	private Joueur j2;
 
 	public MoteurDeJeu() {
 		// TODO Auto-generated constructor stub
 	}
+
+	/*
+	 *            *** Fonctions ***
+	 */
 
 }
