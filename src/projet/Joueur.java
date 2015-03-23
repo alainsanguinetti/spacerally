@@ -83,4 +83,9 @@ public class Joueur {
 		
 	}
 
+	public boolean isWinner() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

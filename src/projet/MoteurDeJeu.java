@@ -17,6 +17,11 @@ public class MoteurDeJeu {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void tourDeJeu() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/*
 	 *            *** Fonctions ***
 	 */

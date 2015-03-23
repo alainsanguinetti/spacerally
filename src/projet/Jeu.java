@@ -1,5 +1,6 @@
 package projet;
 
+import graphique.InterfaceGraphique;
 import cartes.Paquet;
 
 /**
@@ -26,7 +27,6 @@ public class Jeu {
 	 * The board that will represent the game
 	 */
 	private Plateau plateau;
-	//private InterfaceGraphique hmi;
 	/**
 	 * The players of the game.
 	 */
@@ -36,6 +36,10 @@ public class Jeu {
 	 * Boolean value to know if the game is over.
 	 */
 	private boolean fini;
+	/**
+	 * The display for the game
+	 */
+	private InterfaceGraphique interface_graphique;
 
 	/*
 	 *           *** Getters and setters ***
@@ -89,8 +93,13 @@ public class Jeu {
 	 *           *** Functions ***
 	 */
 	private void tourDeJeu() {
-		// TODO Auto-generated method stub
 		
+		this.moteur.tourDeJeu();
+		
+		if ( j1.isWinner() || j2.isWinner() )
+			this.setFini( true );
+		
+		this.interface_graphique.rafraichir();
 	}	
 	/*
 	 *           *** Main ***
