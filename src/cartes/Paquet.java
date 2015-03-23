@@ -17,10 +17,18 @@ public class Paquet {
 	private LinkedList<Carte> tas = new LinkedList<Carte>();
 	
 	/**
+	 * Default constructor
+	 */
+	public Paquet ( )
+	{
+		
+	}
+	
+	/**
 	 * Creates a new deck that contains i cards
 	 * @param i
 	 */
-	public Paquet() {
+	public Paquet( int nb ) {
 		
 		tas.addAll( Deplacement.cartes( 18, 1 ) );
 		tas.addAll( Deplacement.cartes( 12, 2 ) );
@@ -85,6 +93,25 @@ public class Paquet {
 	 */
 	public int size() {
 		return tas.size();
+	}
+
+	/**
+	 * Get the first nb cartes of a deck
+	 * @param nb the number of cards wished
+	 * @return
+	 */
+	public Paquet tirerCartes(int nb) {
+		int i = 0;
+		Paquet main = new Paquet ( );
+		
+		// Tant qu'il y a assez de cartes dans le paquet, on tire une carte jusqu'à ce qu'on en ait assez
+		while ( tas.size() != 0 && i < nb )
+		{
+			main.add ( tas.get(0) );
+			i++;
+		}
+		
+		return main;
 	}
 
 }

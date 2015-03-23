@@ -74,14 +74,14 @@ public class Jeu {
 		j2 = new Joueur ( r2 );
 		
 		// On mélange les cartes
-		pioche = new Paquet ( );
+		pioche = new Paquet ( 84 );
 		pioche.melanger();
 		
 		// On prépare un plateau de jeu
 		plateau = new Plateau ( r1, r2 );
 		
 		// On prépare le moteur de jeu
-		moteur = new MoteurDeJeu ( j1, j2, plateau );
+		moteur = new MoteurDeJeu ( j1, j2, plateau, pioche );
 		
 		// on lance l'interface graphique
 		
@@ -96,7 +96,7 @@ public class Jeu {
 		
 		this.moteur.tourDeJeu();
 		
-		if ( j1.isWinner() || j2.isWinner() )
+		if ( moteur.getGagnant() != 0 )
 			this.setFini( true );
 		
 		this.interface_graphique.rafraichir();

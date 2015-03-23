@@ -88,4 +88,8 @@ public class Joueur {
 		return false;
 	}
 
+	public void preparerJeu( Paquet tirerCartes ) {
+		
+	}
+
 }

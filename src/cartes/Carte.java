@@ -17,7 +17,7 @@ public abstract class Carte {
 	/**
 	 * Counter to give every card a unique vitesse
 	 */
-	private static int cpt_vitesse = 0;
+	public static int cpt_vitesse = 0;
 	/**
 	 * Each has a parameter.
 	 */
