@@ -1,5 +1,6 @@
 package projet;
 
+import graphique.InterfaceGraphique;
 import cartes.Paquet;
 
 /**
@@ -25,7 +26,7 @@ public class Jeu {
 	 * The board that will represent the game
 	 */
 	private Plateau plateau;
-	//private InterfaceGraphique hmi;
+	private InterfaceGraphique interface_graphique;
 	/**
 	 * The players of the game.
 	 */
@@ -65,13 +66,14 @@ public class Jeu {
 		j1 = new Joueur ( r1 );
 		j2 = new Joueur ( r2 );
 		// On mélange les cartes
-		pioche = new Paquet ( );
+		pioche = new Paquet ( 84 );
 		pioche.melanger();
 		// On prépare un plateau de jeu
 		plateau = new Plateau ( r1, r2 );
 		// On prépare le moteur de jeu
 		moteur = new MoteurDeJeu ( j1, j2, plateau, pioche );
-		// on lance l'interface graphique
+		//on lance l'interface graphique
+		interface_graphique = new InterfaceGraphique();
 		// On initialise les variables
 		setFini(false);
 	}
@@ -79,7 +81,8 @@ public class Jeu {
 	 * *** Functions ***
 	 */
 	private void tourDeJeu() {
-		// TODO Auto-generated method stub
+		moteur.tourDeJeu();
+		interface_graphique.rafraichir();
 	}
 	/*
 	 * *** Main ***
