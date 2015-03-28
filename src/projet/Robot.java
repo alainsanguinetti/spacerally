@@ -14,6 +14,10 @@ public class Robot {
 	 */
 	private String orientation;
 	/**
+	 * 
+	 */
+	private Position pos;
+	/**
 	 * A robot will execute an action in the game described by a card
 	 */
 	private Carte action;
@@ -33,6 +37,14 @@ public class Robot {
 	
 	public void setOrientation(String o) {
 		this.orientation = o;
+	}
+	
+	public Position getRobotPos() {
+		return this.pos;
+	}
+	
+	public void setRobotPos(Position p) {
+		this.pos.setPos(p.getX(),p.getY());
 	}
 	
 	

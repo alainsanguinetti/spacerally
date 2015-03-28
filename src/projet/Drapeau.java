@@ -8,12 +8,25 @@ package projet;
  *
  */
 public class Drapeau extends Case {
+	
+	/*
+	 * 		ATTRIBUTS
+	 */
+	private int numDrapeau;
+	private static int counter=1;
 
 	/**
 	 * 
 	 */
-	public Drapeau() {
-		// TODO Auto-generated constructor stub
+	public Drapeau(Position pos) {
+		super(pos);
+		numDrapeau = counter;
+		counter++;
+	}
+	
+	@Override
+	public String toString() {
+		return "( D" + numDrapeau + " )"; 
 	}
 
 }

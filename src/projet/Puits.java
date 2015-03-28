@@ -12,8 +12,12 @@ public class Puits extends Case {
 	/**
 	 * 
 	 */
-	public Puits() {
-		// TODO Auto-generated constructor stub
+	public Puits(Position pos) {
+		super(pos);
+	}
+	
+	public String toString() {
+		return "( X )";
 	}
 
 }
