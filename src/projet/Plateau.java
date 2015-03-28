@@ -18,7 +18,7 @@ public class Plateau {
 	public Plateau() {
 		board = new ArrayList<Case>();
 		positions = new ArrayList<Position>();
-		
+		creerBoard();
 	}
 	
 	public void creerBoard() {
@@ -33,7 +33,6 @@ public class Plateau {
 		coloquerDrapeaux();
 		coloquerPuits();
 		assignerCases();
-		
 	}
 	
 	private void coloquerDrapeaux() {
@@ -47,7 +46,17 @@ public class Plateau {
 	}
 	
 	private void coloquerPuits() {
-		
+		Random n = new Random();
+		int i,j;
+		int k=1;
+		while(k<21){
+			i = n.nextInt(8);
+			j = n.nextInt(8);
+			if( grid[i][j]==0) {
+				grid[i][j] = 1;
+				k++;
+			}
+		}
 	}
 	
 	private void assignerCases() {
@@ -77,5 +86,23 @@ public class Plateau {
 		}
 	}
 	
+	public void afficherPlateau() {
+		int i;
+		String row = " ";
+		for(i=0;i<64;i++) {
+			row = row + board.get(i).toString() + "  ";
+			if((i+1)%8 == 0) {
+				System.out.println(row);
+				row = " ";
+			}
+		}
+	}
 	
+	public static void main(String[] args) {
+
+		Plateau game = new Plateau();
+		game.afficherPlateau();
+	}
+	
+		
 }

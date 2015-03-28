@@ -26,7 +26,7 @@ public class Drapeau extends Case {
 	
 	@Override
 	public String toString() {
-		return "( D" + numDrapeau + " )"; 
+		return "( D" + numDrapeau + ")"; 
 	}
 
 }
