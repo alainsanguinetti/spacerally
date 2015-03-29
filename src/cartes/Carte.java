@@ -1,5 +1,7 @@
 package cartes;
 
+import java.awt.Image;
+
 /**
  * This class describes a general card
  * @author alain
@@ -22,6 +24,8 @@ public abstract class Carte {
 	 * Each has a parameter.
 	 */
 	private int param;
+	
+	protected Image img;
 	/*
 	 *             *** Getters and setters ***
 	 */

@@ -30,7 +30,7 @@ public class InterfaceGraphique extends JPanel{
 		viesR1 = v1;
 		viesR2 = v2;
 		window = new JFrame("ROBORALLY");
-		window.setSize(1000, 1000);
+		window.setSize(1900, 1000);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setContentPane(this);
 		window.setVisible(true);
@@ -39,7 +39,7 @@ public class InterfaceGraphique extends JPanel{
 	public void paintComponent(Graphics ig) {
 		Font ecrit = new Font("Consolas",Font.BOLD,18);
 		ig.setFont(ecrit);
-		ig.setColor(Color.white);
+		ig.setColor(Color.blue);
 		int i,j,k=0;
 		//On dessine les cases
 		for(i=0;i<8;i++) {
@@ -50,6 +50,7 @@ public class InterfaceGraphique extends JPanel{
 		}
 		//On dessine les infos de joeurs
 		try {
+			ig.drawString("Jouer 1", 50, 920);
 			ig.drawImage(ImageIO.read(new File("img/player/r1.png")), 50, 820, 90, 90, this);
 			for(i=0;i<viesR1;i++) {
 				ig.drawImage(ImageIO.read(new File("img/player/life.png")), 150+i*30, 820, 30, 30, this);
