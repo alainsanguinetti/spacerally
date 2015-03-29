@@ -155,7 +155,7 @@ public class Plateau {
 			}
 		}
 	}
-	
+	/*
 	public static void main(String[] args) {
 		Position p = new Position(0,0);
 		Robot r1 = new Robot(p);
@@ -163,6 +163,6 @@ public class Plateau {
 		Plateau game = new Plateau(r1,r2);
 		game.afficherPlateau();
 
-	}
+	} */
 		
 }

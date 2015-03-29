@@ -71,10 +71,11 @@ public class Jeu {
 		pioche.melanger();
 		// On prépare un plateau de jeu
 		plateau = new Plateau ( r1, r2 );
+		plateau.afficherPlateau();
 		// On prépare le moteur de jeu
 		moteur = new MoteurDeJeu ( j1, j2, plateau, pioche );
 		//on lance l'interface graphique
-		interface_graphique = new InterfaceGraphique(plateau);
+		interface_graphique = new InterfaceGraphique(plateau,r1.getVies(),r2.getVies());
 		// On initialise les variables
 		setFini(false);
 	}
