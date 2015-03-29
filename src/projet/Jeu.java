@@ -74,7 +74,7 @@ public class Jeu {
 		// On prépare le moteur de jeu
 		moteur = new MoteurDeJeu ( j1, j2, plateau, pioche );
 		//on lance l'interface graphique
-		interface_graphique = new InterfaceGraphique();
+		interface_graphique = new InterfaceGraphique(plateau);
 		// On initialise les variables
 		setFini(false);
 	}
@@ -83,7 +83,7 @@ public class Jeu {
 	 */
 	private void tourDeJeu() {
 		moteur.tourDeJeu();
-		//interface_graphique.rafraichir();
+		interface_graphique.rafraichir();
 	}
 	/*
 	 * *** Main ***

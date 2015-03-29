@@ -1,5 +1,10 @@
 package projet;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import cartes.Carte;
 
 public class Robot extends Case {
@@ -55,6 +60,17 @@ public class Robot extends Case {
 		numeroRobot = counter;
 		counter++;
 		vies = 3;
+		try {
+			switch(numeroRobot) {
+			case 1: this.img = ImageIO.read(new File("img/robots/r1_0.png"));
+					break;
+			case 2: this.img = ImageIO.read(new File("img/robots/r2_0.png"));
+					break;
+			default: break;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/* *********METHODES********* */

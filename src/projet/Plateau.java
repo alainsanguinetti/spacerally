@@ -21,6 +21,20 @@ public class Plateau {
 		creerBoard(r1,r2);
 	}
 	
+	/*
+	 * GETTERS
+	 */
+	public ArrayList<Case> getBoard() {
+		return this.board;
+	}
+	
+	public int[][] getGrid() {
+		return this.grid;
+	}
+	
+	/*
+	 * METHODES
+	 */
 	public void creerBoard(Robot r1, Robot r2) {
 		int i,j;
 		
