@@ -83,7 +83,7 @@ public class Jeu {
 	 */
 	private void tourDeJeu() {
 		moteur.tourDeJeu();
-		interface_graphique.rafraichir();
+		//interface_graphique.rafraichir();
 	}
 	/*
 	 * *** Main ***
