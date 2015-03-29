@@ -2,7 +2,7 @@ package projet;
 
 import cartes.Carte;
 
-public class Robot {
+public class Robot extends Case {
 
 	/* *********ATTRIBUTS********* */
 	/**
@@ -10,17 +10,25 @@ public class Robot {
 	 */
 	private int vies;
 	/**
-	 * Each robot has an orientation in the board game
+	 * Each robot has an orientation in the board game described by a integer :
+	 * 0 = north (nord)
+	 * 1 = south (sud)
+	 * 2 = east  (est)
+	 * 3 = west  (ouest)
 	 */
-	private String orientation;
-	/**
-	 * 
-	 */
-	private Position pos;
+	private int orientation;
 	/**
 	 * A robot will execute an action in the game described by a card
 	 */
 	private Carte action;
+	/**
+	 * 
+	 */
+	private static int counter=1;
+	/**
+	 * 
+	 */
+	private int numeroRobot;
 	
 	/* *********GET/SET********* */
 	public int getVies() {
@@ -31,31 +39,31 @@ public class Robot {
 		this.vies = n;
 	}
 	
-	public String getOrientation() {
+	public int getOrientation() {
 		return this.orientation;	
 	}
 	
-	public void setOrientation(String o) {
+	public void setOrientation(int o) {
 		this.orientation = o;
 	}
 	
-	public Position getRobotPos() {
-		return this.pos;
-	}
-	
-	public void setRobotPos(Position p) {
-		this.pos.setPos(p.getX(),p.getY());
-	}
 	
 	
 	/* *********CONSTRUCTEUR********* */
-	public Robot() {
-		
+	public Robot(Position p) {
+		super(p);
+		numeroRobot = counter;
+		counter++;
+		vies = 3;
 	}
 	
 	/* *********METHODES********* */
 	public void perdreVie() {
 		this.vies--;
+	}
+	
+	public String toString() {
+		return "( R" + this.numeroRobot + ")";
 	}
 	
 }

@@ -60,8 +60,9 @@ public class Jeu {
 	public Jeu ( )
 	{
 		// On prépare deux robots
-		Robot r1 = new Robot ();
-		Robot r2 = new Robot ();
+		Position begin = new Position(0,0);
+		Robot r1 = new Robot (begin);
+		Robot r2 = new Robot (begin);
 		// On invite les joueurs, ils choisissent un robot
 		j1 = new Joueur ( r1 );
 		j2 = new Joueur ( r2 );

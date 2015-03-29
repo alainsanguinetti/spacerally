@@ -15,13 +15,13 @@ public class Plateau {
 	/*
 	 * CONSTRUCTEUR
 	 */
-	public Plateau() {
+	public Plateau(Robot r1, Robot r2) {
 		board = new ArrayList<Case>();
 		positions = new ArrayList<Position>();
-		creerBoard();
+		creerBoard(r1,r2);
 	}
 	
-	public void creerBoard() {
+	public void creerBoard(Robot r1, Robot r2) {
 		int i,j;
 		
 		for(i=0;i<8;i++) {
@@ -32,7 +32,8 @@ public class Plateau {
 		
 		coloquerDrapeaux();
 		coloquerPuits();
-		assignerCases();
+		coloquerRobots();
+		assignerCases(r1, r2);
 	}
 	
 	private void coloquerDrapeaux() {
@@ -59,8 +60,40 @@ public class Plateau {
 		}
 	}
 	
-	private void assignerCases() {
-		int i,j;
+	private void coloquerRobots() {
+		int i, j=7, numRobots=0;
+		while(numRobots<2) {
+			for(i=0;i<8;i++) {
+				if(numRobots==1) {
+					if(i<7)
+						i++;
+					else {
+						i=0;
+						j--;
+					}
+				}			
+				if(grid[j][i]==0) {
+					if (i==0 && (grid[j][i+1]==0 || grid[j-1][i]==0) ) {
+						grid[j][i] = 3;
+						numRobots++;
+					}
+					else if (i==7 && (grid[j][i-1]==0 || grid[j-1][i]==0) && numRobots<2 ) {
+						grid[j][i] = 3;
+						numRobots++;
+					}
+					else if ((i!=0 && i!=7) && (grid[j][i-1]==0 || grid[j][i+1]==0 || grid[j-1][i]==0) && numRobots<2 ) {
+						grid[j][i] = 3;
+						numRobots++;
+					}
+				}
+			}
+			if(numRobots<2) 
+				j--;
+		}
+	}
+	
+	private void assignerCases(Robot r1, Robot r2) {
+		int i,j,rob=0;
 		Position p;
 		Case c;
 		Puits pu;
@@ -82,6 +115,17 @@ public class Plateau {
 					d = new Drapeau(p);
 					board.add(d);
 				}
+				else if(grid[i][j] == 3) {
+					if(rob==0) {
+						r1.setPosition(p.getX(),p.getY());
+						board.add(r1);
+						rob++;
+					}
+					else {
+						r2.setPosition(p.getX(),p.getY());
+						board.add(r2);
+					}
+				}
 			}
 		}
 	}
@@ -99,10 +143,12 @@ public class Plateau {
 	}
 	
 	public static void main(String[] args) {
-
-		Plateau game = new Plateau();
+		Position p = new Position(0,0);
+		Robot r1 = new Robot(p);
+		Robot r2 = new Robot(p);
+		Plateau game = new Plateau(r1,r2);
 		game.afficherPlateau();
+
 	}
-	
 		
 }

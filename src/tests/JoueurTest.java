@@ -2,12 +2,14 @@ package tests;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Before;
 import org.junit.Test;
 
 import cartes.Paquet;
 import projet.Joueur;
 import projet.Robot;
+import projet.Position;
 
 public class JoueurTest {
 	
@@ -15,7 +17,8 @@ public class JoueurTest {
 	
 	@Before
 	public void testJoueur () {
-		Robot r = new Robot();
+		Position p = new Position(0,0);
+		Robot r = new Robot(p);
 		j = new Joueur ( r );
 	}
 
