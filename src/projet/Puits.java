@@ -16,8 +16,8 @@ public class Puits extends Case {
 	 * 		CONSTRUCTEUR
 	 */
 	/**
-	 * 
-	 * @param pos
+	 * Chaque fois qu'on cree un objet Puits on l'attribue un image.
+	 * @param pos, position initiale
 	 */
 	public Puits(Position pos) {
 		super(pos);
@@ -28,6 +28,12 @@ public class Puits extends Case {
 		}
 	}
 	
+	/*
+	 * 		METHODES
+	 */
+	/**
+	 * On associe un String a Puits pour un affichage en terminal.
+	 */
 	public String toString() {
 		return "( X )";
 	}

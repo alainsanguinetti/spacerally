@@ -19,12 +19,36 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class InterfaceGraphique extends JPanel{
-	
+	/*
+	 * 		ATTRIBUTS
+	 */
+	/**
+	 * On a un plateau qui define la distribution de tous les cases.
+	 */
 	private Plateau board;
+	/**
+	 * Pour l'affichage en ecran on a besoin d'un object de la classe JFrame.
+	 */
 	private JFrame window;
+	/**
+	 * Numero de vies du premier robot.
+	 */
 	private int viesR1;
+	/**
+	 * Numero de vies du deuxieme robot.
+	 */
 	private int viesR2;
 	
+	/*
+	 * 		CONSTRUCTEUR
+	 */
+	/**
+	 * Chaque fois qu'on initialise une interface graphique on intialise aussi les parametres de la variable Window
+	 * pour son affichage en ecran. 
+	 * @param p, plateau genere par Moteur de Jeu
+	 * @param v1, vies du premier robot
+	 * @param v2, vies du deuxieme robot
+	 */
 	public InterfaceGraphique (Plateau p, int v1, int v2){
 		board = p;
 		viesR1 = v1;
@@ -35,7 +59,10 @@ public class InterfaceGraphique extends JPanel{
 		window.setContentPane(this);
 		window.setVisible(true);
 	}
-	
+	/**
+	 * Cette fonction va dessiner les components de l'interface: cases, joeurs et ses donnes (numero de vies
+	 * et drapeaux, ainsi comme leur identifiant).
+	 */
 	public void paintComponent(Graphics ig) {
 		Font ecrit = new Font("Consolas",Font.BOLD,18);
 		ig.setFont(ecrit);
@@ -66,6 +93,9 @@ public class InterfaceGraphique extends JPanel{
 		
 	}
 	
+	/**
+	 * Mettre a jour l'affichage graphique.
+	 */
 	public void rafraichir() {
 		window.repaint();
 	}

@@ -6,14 +6,29 @@ import java.util.Random;
 public class Plateau {
 	
 	/*
-	 * ATTRIBUTS
+	 * 		ATTRIBUTS
+	 */
+	/**
+	 * On aura une collection de Cases qui va conformer le plateau.
 	 */
 	private ArrayList<Case> board;
+	/**
+	 * Comme chaque Case a une position, on aura aussi une collection de Positions.
+	 */
 	private ArrayList<Position> positions;
+	/**
+	 * Pour afficher le tableau en maniere de grille, on aura une matrice bidimensionnelle de numeros entiers.
+	 */
 	int[][] grid = new int[8][8];
 	
 	/*
-	 * CONSTRUCTEUR
+	 * 		CONSTRUCTEUR
+	 */
+	/**
+	 * Quand on cree un Plateau il faut le donner deux robots. Au meme temps on initialise les deux ArrayList et on
+	 * appel la fonction creerBoard.
+	 * @param r1
+	 * @param r2
 	 */
 	public Plateau(Robot r1, Robot r2) {
 		board = new ArrayList<Case>();
@@ -22,18 +37,37 @@ public class Plateau {
 	}
 	
 	/*
-	 * GETTERS
+	 * 		GETTERS/SETTERS
+	 */
+	/**
+	 * On obtient le Plateau.
+	 * @return la collection de cases ou plateau.
 	 */
 	public ArrayList<Case> getBoard() {
 		return this.board;
 	}
-	
+	/**
+	 * On obtient la matrice ou grille.
+	 * @return la grille.
+	 */
 	public int[][] getGrid() {
 		return this.grid;
 	}
 	
 	/*
-	 * METHODES
+	 * 		METHODES
+	 */
+	/**
+	 * Ici on rempli la grille en repartant les drapeaux, robots et puits. D'abord on donne de Cases vides a toute la grille.
+	 * Pour ca on utilise les differentes valeurs pour la variable grid:
+	 *  grid[i][j] = 0 -> Case vide
+	 *  grid[i][j] = 1 -> Puits
+	 *  grid[i][j] = 2 -> Drapeau
+	 *  grid[i][j] = 3 -> Robot
+	 *  Apres on coloque les drapeaux, puits et robots en appelant leurs fonctions et dernierement on rempli l'ArrayList de
+	 *  Cases en utilisant la grid.
+	 * @param r1
+	 * @param r2
 	 */
 	public void creerBoard(Robot r1, Robot r2) {
 		int i,j;
@@ -49,7 +83,9 @@ public class Plateau {
 		coloquerRobots();
 		assignerCases(r1, r2);
 	}
-	
+	/**
+	 * On divide le plateau en 4 parties, et on pose un drapeau aleatoirement dans chaque partie. 
+	 */
 	private void coloquerDrapeaux() {
 		Random i = new Random();
 		Random j = new Random();
@@ -59,7 +95,10 @@ public class Plateau {
 		grid[i.nextInt(4)][j.nextInt(4)+4] = 2;
 		grid[i.nextInt(4)+4][j.nextInt(4)+4] = 2;
 	}
-	
+	/**
+	 * Les 2 puits on les coloque de maniere aletoire par tout la grille. D'abord on verifie que la casse
+	 * ou on veut le poser est vide, sinon on cherche une autre case.
+	 */
 	private void coloquerPuits() {
 		Random n = new Random();
 		int i,j;
@@ -73,7 +112,13 @@ public class Plateau {
 			}
 		}
 	}
-	
+	/**
+	 * Pour commencer le jeu on coloque les 2 robots dans la derniere ligne (de cette facon ils sont loin de le premier
+	 * drapeau. D'abord on verifie que la case ou on veut poser le robot est vide. Apres on verifie que le robot aura au moins
+	 * un case vide soit a droite, a gauche ou en face. Pour ne poser pas les deux robots cote a cote on laisse toujours au 
+	 * moins un espace entre les deux. Si on a fini de chercher cases vides et qui satisfont les caracteristiques mentionnes
+	 * on passe a la avant-derniere ligne.
+	 */
 	private void coloquerRobots() {
 		int i, j=7, numRobots=0;
 		while(numRobots<2) {
@@ -105,7 +150,13 @@ public class Plateau {
 				j--;
 		}
 	}
-	
+	/**
+	 * Un foit qu'on a rempli le grille (variable grid) on va associer des vrais Cases et pas seulement une valeur entiere.
+	 * On a besoin des deux robots pour mettre a jour leurs positions. On parcourt la matrice grid et selon sa valeur
+	 * on ajoute le type de case correspondant a la variable board (ArrayList<Case>).
+	 * @param r1
+	 * @param r2
+	 */
 	private void assignerCases(Robot r1, Robot r2) {
 		int i,j,rob=0;
 		Position p;
@@ -143,7 +194,11 @@ public class Plateau {
 			}
 		}
 	}
-	
+	/**
+	 * Pour afficher le Plateau dans une terminal on parcourt la variable board qui est compose des objets type Case
+	 * ou des classes enfant qui ont la methode toString(). Pour l'afficher comme un grille de 8x8 on saute de ligne
+	 * chaque fois que la variable i est un multiple de 8.
+	 */
 	public void afficherPlateau() {
 		int i;
 		String row = " ";

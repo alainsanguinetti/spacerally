@@ -9,7 +9,9 @@ import cartes.Carte;
 
 public class Robot extends Case {
 
-	/* *********ATTRIBUTS********* */
+	/*
+	 *  		ATTRIBUTS
+	 */
 	/**
 	 * Each robot has 3 lifes, which can be seen as oportunities to keep playing.
 	 */
@@ -27,31 +29,48 @@ public class Robot extends Case {
 	 */
 	private Carte action;
 	/**
-	 * 
+	 * Variable pour gerer l'assignation de la variable numeroRobot.
 	 */
 	private static int counter=1;
 	/**
-	 * 
+	 * Chaque robot a un numero associe, 1 ou 2, qui corresponde aussi au numero de joueur.
 	 */
 	private int numeroRobot;
 	
-	/* *********GET/SET********* */
+	/*		
+	 * GETTERS/SETTERS
+	 */
+	/**
+	 * On obtient le numero de vies du robot.
+	 * @return le numero de vies du robot.
+	 */
 	public int getVies() {
 		return this.vies;
 	}
-	
+	/**
+	 * On modifie le numero de vies du rubot.
+	 * @param n, qui corresponde au nouveau numero de vies.
+	 */
 	public void setVies(int n) {
 		this.vies = n;
 	}
-	
+	/**
+	 * On obtient l'orientation du robot.
+	 * @return un integer qui corresponde a l'orientation du robot.
+	 */
 	public int getOrientation() {
 		return this.orientation;	
 	}
-	
+	/**
+	 * On modifie l'orientation du robot.
+	 * @param o, la nouvelle orientation du robot.
+	 */
 	public void setOrientation(int o) {
 		this.orientation = o;
 	}
-	
+	/**
+	 * On modifie l'image du Robot. Chaque robot a une image differente pour chaque orientation.
+	 */
 	public void setRobotImage() {
 		try {
 			if(this.numeroRobot==1) {
@@ -86,7 +105,14 @@ public class Robot extends Case {
 		
 	}
 	
-	/* *********CONSTRUCTEUR********* */
+	/* 
+	 * 		CONSTRUCTEUR
+	 */
+	/**
+	 * Chaque fois qu'on cree un objet Robot on le donne une position, un numero de robot selon la variable counter et
+	 * pour l'initialiser on le donne 3 vois et une orientation vers le nord, et les images correspondantes.
+	 * @param p, position initiale.
+	 */
 	public Robot(Position p) {
 		super(p);
 		numeroRobot = counter;
@@ -106,11 +132,19 @@ public class Robot extends Case {
 		}
 	}
 	
-	/* *********METHODES********* */
+	/*		
+	 * 		METHODES
+	 */
+	/**
+	 * Chaque fois que le robot tombe sur une case Puits il perdre une vie.
+	 */
 	public void perdreVie() {
 		this.vies--;
 	}
-	
+	/**
+	 * On associe un String au Robot pour un affichage en terminal.
+	 */
+	@Override
 	public String toString() {
 		return "( R" + this.numeroRobot + ")";
 	}

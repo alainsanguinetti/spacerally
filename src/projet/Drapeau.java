@@ -33,7 +33,10 @@ public class Drapeau extends Case {
 	 * 		CONSTRUCTEUR
 	 */
 	/**
-
+	 * Il faut donner une position initiale. Au meme temps on l'assigne un numero de drapeau selon la variable counter.
+	 * On augmente counter pour la prochaine fois qu'il est utilise. Selon le numero de drapeau on attribue une image a
+	 * l'object Drapeau.
+	 * @param pos, position initiale
 	 */
 	public Drapeau(Position pos) {
 		super(pos);
