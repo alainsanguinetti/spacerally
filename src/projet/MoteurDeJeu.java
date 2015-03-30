@@ -200,6 +200,7 @@ public class MoteurDeJeu {
 
 			
 			// Résurection d'un joueur
+			pile2.remove(0);
 		}
 		
 	}	
