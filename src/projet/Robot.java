@@ -20,8 +20,8 @@ public class Robot extends Case {
 	 * Each robot has an orientation in the board game described by a integer (degrees :
 	 * 90 = north (nord)
 	 * 270 = south (sud)
-	 * 180 = east  (est)
-	 * 0 = west  (ouest)
+	 * 180 = west  (ouest)
+	 * 0 = east  (est)
 	 */
 	private int orientation;
 	/**
@@ -147,6 +147,41 @@ public class Robot extends Case {
 	@Override
 	public String toString() {
 		return "( R" + this.numeroRobot + ")";
+	}
+	
+	/**
+	 * Returns orientation of the robot as two coordinates in x and y
+	 * @return
+	 */
+	public Position getOrientationAsPosi() {
+		
+		int dep_x = 0, dep_y = 0;
+		
+		orientation = orientation % 360;
+		
+		// 
+		if ( orientation == 0 )
+		{
+			dep_x = 1;
+			dep_y = 0;
+		}
+		else if ( orientation == 90 )
+		{
+			dep_x = 0;
+			dep_y = -1;
+		}
+		else if ( orientation == 180 )
+		{
+			dep_x = -1;
+			dep_y = 0;
+		}
+		else if ( orientation == 270 )
+		{
+			dep_x = 0;
+			dep_y = 1;
+		}
+		
+		return new Position ( dep_x, dep_y );
 	}
 	
 }

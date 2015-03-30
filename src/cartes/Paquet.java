@@ -58,7 +58,8 @@ public class Paquet {
 	 * Shuffles the card in the deck
 	 */
 	public void melanger() {
-		int limite = 100;
+		
+		int limite = 1000;
 		int index = 0;
 		
 		for ( int i = 0; i < limite; i++ )
@@ -107,7 +108,7 @@ public class Paquet {
 		// Tant qu'il y a assez de cartes dans le paquet, on tire une carte jusqu'à ce qu'on en ait assez
 		while ( tas.size() != 0 && i < nb )
 		{
-			main.add ( tas.get(0) );
+			main.add ( tas.get(i) );
 			i++;
 		}
 		

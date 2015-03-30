@@ -17,11 +17,20 @@ import cartes.Paquet;
 public class Joueur {
 	
 	/**
-	 * Attributs
+	 * Robot of Joueur
 	 */
 	private Robot rob;
+	/**
+	 * The cards that Joueur has chosen to play
+	 */
 	private Carte choix[] = new Carte[5];
+	/**
+	 * The cards that Joueur can pick from and place into "choix"
+	 */
 	private Paquet main;
+	/**
+	 * The number of flags that Joueur already has
+	 */
 	private int nbrDrapeaux;
 	
 	/**

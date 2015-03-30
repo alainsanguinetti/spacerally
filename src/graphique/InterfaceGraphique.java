@@ -65,6 +65,7 @@ public class InterfaceGraphique extends JPanel{
 		window.setContentPane(this);
 		window.setVisible(true);
 	}
+	
 	/**
 	 * Cette fonction va dessiner les components de l'interface: cases, joeurs et ses donnes (numero de vies
 	 * et drapeaux, ainsi comme leur identifiant).
