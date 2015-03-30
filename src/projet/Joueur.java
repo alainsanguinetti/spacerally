@@ -1,5 +1,5 @@
 /**
- * 
+ * Class that describes a player of the game RoboRally
  */
 package projet;
 
@@ -20,17 +20,26 @@ import cartes.Carte;
 import cartes.Paquet;
 
 /**
- * @author Eder JIMENEZ
+ * @author Eder JIMENEZ and Alain
  *
  */
 public class Joueur extends JPanel {
 	
 	/**
-	 * Attributs
+	 * Robot of Joueur
 	 */
 	private Robot rob;
+	/**
+	 * The cards that Joueur has chosen to play
+	 */
 	private Carte choix[] = new Carte[5];
+	/**
+	 * The cards that Joueur can pick from and place into "choix"
+	 */
 	private Paquet main;
+	/**
+	 * The number of flags that Joueur already has
+	 */
 	private int nbrDrapeaux;
 	private JFrame window;
 	private Image vide;

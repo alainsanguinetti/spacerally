@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 
 import cartes.Action;
+import cartes.Carte;
+import cartes.Deplacement;
+import cartes.Orientation;
 import cartes.Paquet;
 
 /**
@@ -96,12 +99,108 @@ public class MoteurDeJeu {
 		
 	}
 	
+	/**
+	 * Performs cleaning action that corresponds to one of the robot being dead
+	 * @param j the player whose robot is dead
+	 */
+	private void joueurMort(Joueur j) {
+		// Enlever une vie au joueur
+		j.getRob().perdreVie();
+		
+		// Vider la pile des actions correspondantes
+		for ( int i = 0; i < pile.size(); i++ )
+		{
+			if ( pile.get(i).getJ() == j )
+			{
+				pile.remove(i);
+			}
+		}
+	}
 	
-	private void effectuer(LinkedList<Action> pile2) {
-		// TODO Auto-generated method stub
+	/**
+	 * Move robot from one position to the other on the board
+	 * @param posi_now
+	 * @param posi_future
+	 */
+	private void bougerRobot(Position posi_now, Position posi_future) {
+		Case temp = plateau.getCase(posi_future);
+		plateau.setCase ( posi_future, plateau.getCase(posi_now));
+		plateau.setCase ( posi_now, temp );		
+	}
+	
+	/**
+	 * Move the robot of a player
+	 * @param j the player 
+	 * @param param the number of Case(s)
+	 */
+	private void deplacer(Joueur j, int param) {
+		
+		// Position actuelle
+		Position posi_now = j.getRob().getPosition();
+		Position dep_x_y = j.getRob().getOrientationAsPosi();
+		Position posi_future = posi_now;
+		
+		// Tests des positions suivantes
+		for ( int i = 0; i < param; i++ )
+		{
+			posi_future = new Position (
+					posi_now.getX() + i * dep_x_y.getX(),
+					posi_now.getY() + i * dep_x_y.getY() );
+			
+			// Si il y a un robot
+			if ( plateau.getCase(posi_future).getClass() == Robot.class )
+			{
+				deplacer ( ( j == j1 ) ? j2 : j1, 1 );
+			}
+			// Si c'est un puit
+			else if ( plateau.getCase(posi_future).getClass() == Puits.class )
+			{
+				joueurMort ( j );
+				return;
+			}
+		}
+		
+		bougerRobot ( posi_now, posi_future );
 		
 	}
 	
+	/**
+	 * Performs the set of instructions described by pile
+	 * @param pile2 the set of instructions
+	 */
+	private void effectuer(LinkedList<Action> pile2) {
+		
+		Action action;
+		
+		// Tant qu'il y a des actions, 
+		while ( pile2.size() > 0 )
+		{
+			// Executer l'action
+			action = pile2.get(0);
+			
+			// Déplacement
+			if ( action.getMvt().getClass() == Deplacement.class )
+			{
+				deplacer ( action.getJ(), action.getMvt().getParam() );
+			}
+			// Changement d'orientation
+			else if ( action.getMvt().getClass() == Orientation.class )
+			{
+				//tourner ( action.getJ(), action.getMvt().getParam() );
+			}
+
+			
+			// Résurection d'un joueur
+		}
+		
+	}	
+
+	/**
+	 * Creates a set of actions that the game engine will perform
+	 * @param j1 the first player
+	 * @param j2 the second player
+	 * @return Actions, ordered in the correct way
+	 */
 	private LinkedList<Action> listerActions(Joueur j1, Joueur j2) {
 		
 		int v1, v2, i1, i2; 

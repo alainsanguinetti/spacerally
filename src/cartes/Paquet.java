@@ -58,7 +58,8 @@ public class Paquet {
 	 * Shuffles the card in the deck
 	 */
 	public void melanger() {
-		int limite = 100;
+		
+		int limite = 1000;
 		int index = 0;
 		
 		for ( int i = 0; i < limite; i++ )

@@ -219,5 +219,25 @@ public class Plateau {
 		game.afficherPlateau();
 
 	} */
+	
+	/**
+	 * Get the case that is at x, y of the board
+	 * @param posi_case x and y as a Position object
+	 * @return the Case at index x and y
+	 */
+	public Case getCase ( Position posi_case )
+	{
+		return board.get( posi_case.getX() + posi_case.getY() * 8 );
+	}
+
+	/**
+	 * Set the case at index x,y of the board
+	 * @param posi_case, the position of the new Case
+	 * @param case1 the new Case
+	 */
+	public void setCase(Position posi_case, Case case1) {
+		// TODO Auto-generated method stub
+		
+	}
 		
 }
