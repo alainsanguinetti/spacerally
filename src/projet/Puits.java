@@ -12,9 +12,12 @@ import javax.imageio.ImageIO;
  *
  */
 public class Puits extends Case {
-
+	/*
+	 * 		CONSTRUCTEUR
+	 */
 	/**
 	 * 
+	 * @param pos
 	 */
 	public Puits(Position pos) {
 		super(pos);

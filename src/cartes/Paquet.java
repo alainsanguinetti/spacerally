@@ -33,10 +33,10 @@ public class Paquet {
 		tas.addAll( Deplacement.cartes( 18, 1 ) );
 		tas.addAll( Deplacement.cartes( 12, 2 ) );
 		tas.addAll( Deplacement.cartes( 6, 3 ) );
-		tas.addAll( Deplacement.cartes( 6, 1 ) );
-		tas.addAll( Orientation.cartes( 18, 1 ) );
-		tas.addAll( Orientation.cartes( 18, -1 ) );
-		tas.addAll( Orientation.cartes( 6, 2 ) );
+		tas.addAll( Deplacement.cartes( 6, -1 ) );
+		tas.addAll( Orientation.cartes( 18, 90 ) );
+		tas.addAll( Orientation.cartes( 18, -90 ) );
+		tas.addAll( Orientation.cartes( 6, 180 ) );
 		
 	}
 

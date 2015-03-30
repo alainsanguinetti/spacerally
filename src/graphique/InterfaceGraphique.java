@@ -50,14 +50,15 @@ public class InterfaceGraphique extends JPanel{
 		}
 		//On dessine les infos de joeurs
 		try {
-			ig.drawString("Jouer 1", 50, 920);
+			ig.drawString("Jouer 1", 60, 930);
 			ig.drawImage(ImageIO.read(new File("img/player/r1.png")), 50, 820, 90, 90, this);
 			for(i=0;i<viesR1;i++) {
-				ig.drawImage(ImageIO.read(new File("img/player/life.png")), 150+i*30, 820, 30, 30, this);
+				ig.drawImage(ImageIO.read(new File("img/player/1up.png")), 150+i*30, 820, 30, 30, this);
 			}
+			ig.drawString("Jouer 2", 420, 930);
 			ig.drawImage(ImageIO.read(new File("img/player/r2.png")), 410, 820, 90, 90, this);
 			for(i=0;i<viesR2;i++) {
-				ig.drawImage(ImageIO.read(new File("img/player/life.png")), 510+i*30, 820, 30, 30, this);
+				ig.drawImage(ImageIO.read(new File("img/player/1up.png")), 510+i*30, 820, 30, 30, this);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
