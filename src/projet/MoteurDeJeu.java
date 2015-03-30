@@ -223,7 +223,7 @@ public class MoteurDeJeu {
 		do {
 			// On lit la vitesse du J1 et du J2
 			v1 = ( j1.getChoix()[i1] != null ) ? j1.getChoix()[i1].getVitesse() : -1;
-			v2 = ( j2.getChoix()[i1] != null ) ? j2.getChoix()[i2].getVitesse() : -1;;
+			v2 = ( j2.getChoix()[i2] != null ) ? j2.getChoix()[i2].getVitesse() : -1;;
 				
 			// On ajoute le plus grand à la pile d'action
 			if ( v1 > v2 )
