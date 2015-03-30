@@ -49,7 +49,13 @@ public abstract class Carte {
 	public int getParam() {
 		return param;
 	}
-
+	
+	/**
+	 * @return the image of the card
+	 */
+	public Image getImg() {
+		return this.img;
+	}
 	/**
 	 * @param param the param to set
 	 */
@@ -63,7 +69,7 @@ public abstract class Carte {
 	/**
 	 * Constructor for all cards, each card has a unique "vitesse"
 	 */
-	public Carte ( ){
+	public Carte (){
 		
 		setVitesse(cpt_vitesse);
 		

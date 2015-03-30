@@ -6,12 +6,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
-import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -40,7 +34,13 @@ public class InterfaceGraphique extends JPanel{
 	 * Numero de vies du deuxieme robot.
 	 */
 	private int viesR2;
+	/**
+	 * Jouer 1
+	 */
 	private Joueur j1;
+	/**
+	 * Joueur 2
+	 */
 	private Joueur j2;
 	
 	/*
@@ -50,8 +50,8 @@ public class InterfaceGraphique extends JPanel{
 	 * Chaque fois qu'on initialise une interface graphique on intialise aussi les parametres de la variable Window
 	 * pour son affichage en ecran. 
 	 * @param p, plateau genere par Moteur de Jeu
-	 * @param v1, vies du premier robot
-	 * @param v2, vies du deuxieme robot
+	 * @param J1, joueur 1
+	 * @param J2, joueur 2
 	 */
 	public InterfaceGraphique (Plateau p, Joueur j1, Joueur j2){
 		board = p;
@@ -60,7 +60,7 @@ public class InterfaceGraphique extends JPanel{
 		viesR1 = this.j1.getRob().getVies();
 		viesR2 = this.j2.getRob().getVies();
 		window = new JFrame("ROBORALLY");
-		window.setSize(1900, 1000);
+		window.setSize(950, 850);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setContentPane(this);
 		window.setVisible(true);
@@ -83,15 +83,15 @@ public class InterfaceGraphique extends JPanel{
 		}
 		//On dessine les infos de joeurs
 		try {
-			ig.drawString("Joueur 1", 60, 930);
-			ig.drawImage(ImageIO.read(new File("img/player/r1.png")), 50, 820, 90, 90, this);
+			ig.drawString("Joueur 1", 825, 60);
+			ig.drawImage(ImageIO.read(new File("img/player/r1.png")), 820, 70, 90, 90, this);
 			for(i=0;i<viesR1;i++) {
-				ig.drawImage(ImageIO.read(new File("img/player/1up.png")), 150+i*30, 820, 30, 30, this);
+				ig.drawImage(ImageIO.read(new File("img/player/1up.png")), 820+i*30, 180, 30, 30, this);
 			}
-			ig.drawString("Joueur 2", 420, 930);
-			ig.drawImage(ImageIO.read(new File("img/player/r2.png")), 410, 820, 90, 90, this);
+			ig.drawString("Joueur 2", 825, 420);
+			ig.drawImage(ImageIO.read(new File("img/player/r2.png")), 820, 430, 90, 90, this);
 			for(i=0;i<viesR2;i++) {
-				ig.drawImage(ImageIO.read(new File("img/player/1up.png")), 510+i*30, 820, 30, 30, this);
+				ig.drawImage(ImageIO.read(new File("img/player/1up.png")), 820+i*30, 520, 30, 30, this);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

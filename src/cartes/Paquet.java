@@ -107,7 +107,7 @@ public class Paquet {
 		// Tant qu'il y a assez de cartes dans le paquet, on tire une carte jusqu'à ce qu'on en ait assez
 		while ( tas.size() != 0 && i < nb )
 		{
-			main.add ( tas.get(0) );
+			main.add ( tas.get(i) );
 			i++;
 		}
 		
