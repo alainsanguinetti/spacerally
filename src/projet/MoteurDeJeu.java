@@ -135,6 +135,7 @@ public class MoteurDeJeu {
 	 */
 	private void deplacer(Joueur j, int param) {
 		
+		System.out.println("Action déplacement");
 		// Position actuelle
 		Position posi_now = j.getRob().getPosition();
 		Position dep_x_y = j.getRob().getOrientationAsPosi();
@@ -181,6 +182,8 @@ public class MoteurDeJeu {
 		
 		Action action;
 		
+		System.out.println("Debut execution");
+		
 		// Tant qu'il y a des actions, 
 		while ( pile2.size() > 0 )
 		{
@@ -197,7 +200,6 @@ public class MoteurDeJeu {
 			{
 				//tourner ( action.getJ(), action.getMvt().getParam() );
 			}
-
 			
 			// Résurection d'un joueur
 			pile2.remove(0);
@@ -237,6 +239,9 @@ public class MoteurDeJeu {
 				resultat.add( new Action (j2.getChoix()[i2], j2) );
 				j2.getChoix()[i2] = null;
 				i2++;
+			}
+			else {
+				break;
 			}
 			// On recommence jusqu'à ce que les 2 soient vides
 		}while ( ( v1!=-1 || v2 !=-1 ) && ( i1 < 5 ) && ( i2 < 5 ) );
