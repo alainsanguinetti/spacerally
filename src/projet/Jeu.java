@@ -75,7 +75,7 @@ public class Jeu {
 		// On prépare le moteur de jeu
 		moteur = new MoteurDeJeu ( j1, j2, plateau, pioche );
 		//on lance l'interface graphique
-		interface_graphique = new InterfaceGraphique(plateau,r1.getVies(),r2.getVies());
+		interface_graphique = new InterfaceGraphique(plateau,j1,j2);
 		// On initialise les variables
 		setFini(false);
 	}
