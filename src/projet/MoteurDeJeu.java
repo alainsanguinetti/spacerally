@@ -141,7 +141,7 @@ public class MoteurDeJeu {
 		Position posi_future = posi_now;
 		
 		// Tests des positions suivantes
-		for ( int i = 0; i < param; i++ )
+		for ( int i = 1; i <= param; i++ )
 		{
 			posi_future = new Position (
 					posi_now.getX() + i * dep_x_y.getX(),
