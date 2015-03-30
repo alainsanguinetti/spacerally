@@ -1,20 +1,29 @@
 /**
- * 
+ * Class that describes a player of the game RoboRally
  */
 package projet;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import cartes.Carte;
 import cartes.Paquet;
 
 /**
- * @author Eder JIMENEZ
+ * @author Eder JIMENEZ and Alain
  *
  */
-public class Joueur {
+public class Joueur extends JPanel {
 	
 	/**
 	 * Robot of Joueur
@@ -32,6 +41,8 @@ public class Joueur {
 	 * The number of flags that Joueur already has
 	 */
 	private int nbrDrapeaux;
+	private JFrame window;
+	private Image vide;
 	
 	/**
 	 * @return the rob
@@ -97,6 +108,11 @@ public class Joueur {
 		
 		setRob ( r );
 		main = new Paquet ();
+		try {
+			vide = ImageIO.read(new File("img/cartes/carte.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -108,13 +124,13 @@ public class Joueur {
 		boolean fini = false;
 		int emplacement, carte;
 		this.main = cartes;
-		
+		cartesGraphique();
 		do
 		{
 			// Afficher la main
 			main.toString();
 			choix.toString();
-			
+			cartesUpdate();
 			// Choisir un emplacement
 			emplacement = demanderChiffre ( "emplacement", 0, 4 );
 			
@@ -169,7 +185,7 @@ public class Joueur {
 			
 		// On met la carte de la main dans la place souhaitée
 		choix[emplacement] = main.get(carte) ;
-		main.getTas().remove( carte );
+		main.getTas().remove(carte);
 		
 		// Si besoin, on remet la carte qui était à la place dans la main
 		if ( temp != null )
@@ -224,4 +240,32 @@ public class Joueur {
 		return emplacement;
 	}
 
+	private void cartesGraphique() {
+		window = new JFrame("Choix Joeur");
+		window.setSize(1100, 600);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setContentPane(this);
+		window.setVisible(true);
+	}
+	
+	private void cartesUpdate() {
+		window.repaint();
+	}
+	
+	public void paintComponent(Graphics g) {
+		Font ecrit = new Font("Consolas",Font.BOLD,18);
+		g.setFont(ecrit);
+		g.setColor(Color.blue);
+
+		//On dessine les cartes
+		for(int i=0;i<main.size();i++) {
+				g.drawImage(main.get(i).getImg(),50+i*110,50,110,180,this);
+				g.drawString(Integer.toString(i),100+i*110,250);
+		}
+		
+		for(int i=0;i<5;i++) {
+			g.drawImage(vide,250+i*110,300,110,180,this);
+			g.drawString(Integer.toString(i),300+i*110,500);
+		}
+	}
 }

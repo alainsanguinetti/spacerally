@@ -1,6 +1,10 @@
 package cartes;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
+
+import javax.imageio.ImageIO;
 
 
 /**
@@ -23,6 +27,19 @@ public class Orientation extends Carte {
 	public Orientation( int angle ) {
 		
 		setParam ( angle );
+		try {
+			switch(angle) {
+			case 90: this.img = ImageIO.read(new File("img/cartes/right.png"));
+					break;
+			case -90: this.img = ImageIO.read(new File("img/cartes/left.png"));
+					break;
+			case 180: this.img = ImageIO.read(new File("img/cartes/demitour.png"));
+					break;
+			default: break;
+			} 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	

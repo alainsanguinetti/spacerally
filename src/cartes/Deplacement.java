@@ -1,6 +1,10 @@
 package cartes;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
+
+import javax.imageio.ImageIO;
 
 /**
  * This is a type of card that do not change orientation of the robot
@@ -24,6 +28,21 @@ public class Deplacement extends Carte {
 	public Deplacement( int distance ) {
 		
 		setParam ( distance );
+		try {
+			switch(distance) {
+			case 1: this.img = ImageIO.read(new File("img/cartes/avance1.png"));
+					break;
+			case 2: this.img = ImageIO.read(new File("img/cartes/avance2.png"));
+					break;
+			case 3: this.img = ImageIO.read(new File("img/cartes/avance3.png"));
+					break;
+			case -1: this.img = ImageIO.read(new File("img/cartes/rec.png"));
+					 break;
+			default: break;
+			} 
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*
