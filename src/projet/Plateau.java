@@ -103,7 +103,7 @@ public class Plateau {
 		Random n = new Random();
 		int i,j;
 		int k=1;
-		while(k<21){
+		while(k<11){
 			i = n.nextInt(8);
 			j = n.nextInt(8);
 			if( grid[i][j]==0) {
