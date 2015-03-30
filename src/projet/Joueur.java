@@ -86,6 +86,7 @@ public class Joueur {
 	 */
 	public Joueur(Robot r) {
 		
+		setRob ( r );
 		main = new Paquet ();
 	}
 
