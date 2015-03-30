@@ -21,7 +21,7 @@ public class Drapeau extends Case {
 	 * Chaque drapeau a un numero associe, ce numero va de 1 a 4. A part d'intifier un drapeau,
 	 * le numero represent l'ordre dans lesquel les jouers doivent les collecter.
 	 */
-	private int numDrapeau;
+	public int numDrapeau;
 	/**
 	 * On utilise un counter pour gerer l'assigantion de numero de drapeau chaque fois que le constructeur
 	 * est appele. La valeur initiale est 1 car la premier fois qu'on appel le constructeur on va creer le drapeau

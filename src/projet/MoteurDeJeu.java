@@ -158,6 +158,15 @@ public class MoteurDeJeu {
 				joueurMort ( j );
 				return;
 			}
+			// Si c'est un drapeau
+			else if ( plateau.getCase(posi_future).getClass() == Drapeau.class )
+			{
+				j.setNbrDrapeaux(
+						j.getNbrDrapeaux() + 
+						( ( Drapeau ) plateau.getCase(posi_future)).numDrapeau );
+				
+				// Si on a gagné
+			}
 		}
 		
 		bougerRobot ( posi_now, posi_future );
