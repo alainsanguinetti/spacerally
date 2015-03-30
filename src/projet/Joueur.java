@@ -148,6 +148,7 @@ public class Joueur extends JPanel {
 			
 			// Tant que le joueur n'a pas validé ses choix
 		} while ( !fini );
+		window.dispose();
 	}
 
 	/**
@@ -255,7 +256,10 @@ public class Joueur extends JPanel {
 		}
 		
 		for(int i=0;i<5;i++) {
-			g.drawImage(vide,250+i*110,300,110,180,this);
+			if(choix[i] == null)
+				g.drawImage(vide,250+i*110,300,110,180,this);
+			else
+				g.drawImage(choix[i].getImg(),250+i*110,300,110,180,this);
 			g.drawString(Integer.toString(i),300+i*110,500);
 		}
 	}
