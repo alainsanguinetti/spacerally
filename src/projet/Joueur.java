@@ -169,6 +169,7 @@ public class Joueur {
 			
 		// On met la carte de la main dans la place souhaitée
 		choix[emplacement] = main.get(carte) ;
+		main.getTas().remove( carte );
 		
 		// Si besoin, on remet la carte qui était à la place dans la main
 		if ( temp != null )
