@@ -232,7 +232,7 @@ public class MoteurDeJeu {
 				j1.getChoix()[i1] = null;
 				i1++;
 			}
-			else 
+			else if ( v2 > v1 )
 			{
 				resultat.add( new Action (j2.getChoix()[i2], j2) );
 				j2.getChoix()[i2] = null;
